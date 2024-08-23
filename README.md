@@ -1,6 +1,6 @@
-# inVIcTUS
+# inVIcTus
 
-Welcome to **inVIcTUS**! This is a one-stop destination for all your academic needs, including a FFCS Planner, classroom finder, faculty finder, project submission portal, and contact form.
+Welcome to **inVIcTus**! This is a one-stop destination for all your academic needs, including a FFCS Planner, classroom finder, faculty finder, project submission portal, and contact form.
 
 ## Installation
 
