@@ -9,8 +9,8 @@ To get started with the project, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/inVIcTUS.git
-   cd inVIcTUS
+   git clone https://github.com/your-username/inVIcTus.git
+   cd inVIcTus
    ```
 
 2. **Install dependencies:**
@@ -56,8 +56,8 @@ We welcome contributions from the community! If you have suggestions for new fea
 2. **Clone your fork** locally:
 
    ```bash
-   git clone https://github.com/your-username/inVIcTUS.git
-   cd inVIcTUS
+   git clone https://github.com/your-username/inVIcTus.git
+   cd inVIcTus
    ```
 
 3. **Create a new branch** for your feature or bug fix:
