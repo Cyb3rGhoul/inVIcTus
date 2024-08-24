@@ -1,0 +1,126 @@
+.footer {
+    background-color: #2F3C7E;
+    color: #FBEAEB;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: center;
+    margin: 0 1rem;
+    min-width: 150px;
+}
+
+.footer-section h3 {
+    color: #FFD700;
+    /* Gold color for section headers */
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section p,
+.footer-section ul {
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footer-section ul li {
+    display: inline;
+    /* Displays list items inline */
+    margin-right: 1rem;
+    /* Space between inline items */
+}
+
+.footer-section a {
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #FBEAEB;
+    /* Light color on hover */
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #FBEAEB;
+}
+
+#social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: 0.9rem;
+    }
+
+    .footer-section p,
+    .footer-section ul {
+        font-size: 0.8rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.7rem;
+    }
+
+    .social-links{
+        display: flex;
+        flex-direction: row;
+    }
+}

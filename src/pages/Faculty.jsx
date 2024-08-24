@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Faculty.css'; // Ensure to add styles here
 import image from '../assets/floorPlan.png';
+import Footer from '../components/Footer';
 
 function Faculty() {
   const [activeBox, setActiveBox] = useState(null);
@@ -354,7 +355,8 @@ function Faculty() {
     setArrowVisible(true); // Show arrow on search match
   };
 
-  return (
+  return (<>
+
     <div className={`container ${suggestions.length > 0 ? 'suggestions-visible' : ''}`}>
       <input
         type="text"
@@ -379,13 +381,21 @@ function Faculty() {
       <div className={`box box-a ${activeBox === 'A' ? 'active' : ''}`}>
         A {activeBox === 'A' && arrowVisible && <span className="arrow">←</span>}
       </div>
-      <div className={`box box-b ${activeBox === 'B' ? 'active' : ''}`}>B</div>
+      <div className={`box box-b ${activeBox === 'B' ? 'active' : ''}`}>
+        B {activeBox === 'B' && arrowVisible && <span className="arrow">←</span>}
+      </div>
       <div className={`box box-c ${activeBox === 'C' ? 'active active-c' : ''}`}>
         C {activeBox === 'C' && arrowVisible && <span className="arrow">→</span>}
       </div>
-      <div className={`box box-d ${activeBox === 'D' ? 'active active-d' : ''}`}>D</div>
+      <div className={`box box-d ${activeBox === 'D' ? 'active active-d' : ''}`}>
+        D {activeBox === 'D' && arrowVisible && <span className="arrow">→</span>}
+      </div>
     </div>
-  );
+    <div className='footer' style={{marginTop:30}}>
+      <Footer />
+    </div>
+
+  </>);
 }
 
 export default Faculty;
