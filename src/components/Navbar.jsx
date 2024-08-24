@@ -17,7 +17,7 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
                 <Link to="https://ffcs-vitb-maker.vercel.app/" target='blank'>FFCS Planner</Link>
                 <Link to="/find-faculty">Find Your Faculty</Link>
-                <Link to="/give-star">Give a Star</Link>
+                <Link to="https://github.com/Cyb3rGhoul/inVIcTus" target='blank'>Give a Star</Link>
                 <a href="https://buymeacoffee.com/harshshukla.dev" target='_blank'>By Me a Coffee</a>
             </div>
             {/* Hamburger Icon for smaller screens */}
