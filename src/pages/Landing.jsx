@@ -30,27 +30,27 @@ const Landing = () => {
                         <Link to="https://ffcs-vitb-maker.vercel.app/" className="milestone" target="_blank">
                             <div className="circle">1</div>
                             <h3>FFCS Planner</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>FFCS Planner is a website for VIT students to create, customize, and export timetables by selecting slots and teachers.</p>
                         </Link>
                         <Link to="/classroom" className="milestone">
                             <div className="circle">2</div>
                             <h3>Find Your Class</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>(This section is under construction but will be available soon)</p>
                         </Link>
                         <Link to="/find-faculty" className="milestone">
                             <div className="circle">3</div>
                             <h3>Find Your Faculty</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>(For VIT Bhopal students) An easy way to find the Cabin number of your faculty using visiual floor map. (I Bet it is the best)</p>
                         </Link>
                         <Link to="/project" className="milestone">
                             <div className="circle">4</div>
                             <h3>Add Your Project</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>I have created a GitHub org where you can come and display your projects so that others can find you :)</p>
                         </Link>
                         <Link to="/contact" className="milestone">
                             <div className="circle">5</div>
                             <h3>Contact Us</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>For any queries contact me. And a follow on my socials will give me huge bost to work harder</p>
                         </Link>
                     </div>
                 </section>
