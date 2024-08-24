@@ -36,7 +36,7 @@ const Landing = () => {
                             <h3>Find Your Class</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </Link>
-                        <Link to="/faculty" className="milestone">
+                        <Link to="/find-faculty" className="milestone">
                             <div className="circle">3</div>
                             <h3>Find Your Faculty</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

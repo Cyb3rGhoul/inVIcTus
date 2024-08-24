@@ -1,4 +1,4 @@
-.bodyy{
+.error{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,4 +6,12 @@
     width: 100%;
     font-size: 5rem;
     background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .error img{
+        width: 100%;
+        margin-top: 20px;
+        height: 95%;
+    }
 }
