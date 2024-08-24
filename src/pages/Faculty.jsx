@@ -375,7 +375,7 @@ function Faculty() {
         </ul>
       )}
       <p className="room-display">
-        {selectedRoomInfo || 'Room info will appear here after selecting a faculty'}
+        {selectedRoomInfo || 'Room info will appear here.'}
       </p>
       <img src={image} alt="layout" className="layout-image" />
       <div className={`box box-a ${activeBox === 'A' ? 'active' : ''}`}>
