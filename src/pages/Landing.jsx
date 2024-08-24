@@ -1,15 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Landing.css';
+import { TypeAnimation } from 'react-type-animation';
 
 const Landing = () => {
     return (
 
         <>
-
             <div className="landing">
                 <header>
-                    <h1 id='heading'>Welcome to <span className='in' id='in'>inVIcTus</span></h1>
+                    <h1 id='heading'>Welcome to <span className='in' id='in'>
+                        <TypeAnimation
+                            sequence={[
+                                'inVIcTus',
+                                1000,
+                            ]}
+                            wrapper="span"
+                            speed={{type: 'keyStrokeDelayInMs', value: 250}}
+                            style={{ fontSize: '1em', display: 'inline-block' }}
+                            repeat={Infinity}
+                        /></span></h1>
                     <p>This is a one-stop destination for all your Needs.<br></br>(Academic needs)</p>
                 </header>
 

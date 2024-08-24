@@ -44,15 +44,13 @@
     border: none;
     cursor: pointer;
     font-weight: bold;
-    transition: color 0.3s, background-color 0.3s;
+    transition: color 0.3s;
     padding: 0.25rem .75rem;
 }
 
 .navbar .links a:hover,
 .navbar .links button:hover {
-    color: #2F3C7E;
-    background-color: #FBEAEB;
-    border-radius: 5px;
+    color: #FFD700;
 }
 
 .navbar .links button {
