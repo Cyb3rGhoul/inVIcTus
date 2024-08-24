@@ -66,9 +66,9 @@ const Landing = () => {
                             <h3>Follow Me</h3>
                             <p style={{ marginBottom: 10 }}>Connect with me on social media</p>
                             <div className="social-links">
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+                                <a href="https://www.linkedin.com/in/harsh-shukla-1inkdein/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                <a href="https://github.com/Cyb3rGhoul" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                <a href="https://instagram.com/haarrrssshhh_" target="_blank" rel="noopener noreferrer">Instagram</a>
                             </div>
                         </div>
                     </div>
