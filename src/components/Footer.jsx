@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="footer-section about" style={{ textAlign: 'start' }}>
                 <h3>About Us</h3>
                 <p>
-                    inVIcTUS is a comprehensive platform designed to cater to all your academic needs, from planning your curriculum to connecting with faculty.
+                    inVIcTus is a comprehensive platform designed to cater to all your academic needs, from planning your curriculum to connecting with faculty.
                 </p>
             </div>
             <div className="footer-section social" id='social'>
