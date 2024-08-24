@@ -1,19 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Landing.css';
+import backgroundVideo from '../assets/background.mp4';
 
 const Landing = () => {
     return (
-        
+
         <>
+            <video className="background-video" autoPlay loop muted playsInline>
+                <source src={backgroundVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
             <div className="landing">
                 <header>
-                <h1 id='heading'>Welcome to <span className='in' id='in'>inVIcTus</span></h1>
+                    <h1 id='heading'>Welcome to <span className='in' id='in'>inVIcTus</span></h1>
                     <p>This is a one-stop destination for all your Needs.<br></br>(Academic needs)</p>
                 </header>
 
                 <section>
-                    <h2 className="offer-heading">What We Offer</h2>
+                    <h2 className="offer-heading">What You can do</h2>
                     <div className="timeline">
                         <Link to="https://ffcs-vitb-maker.vercel.app/" className="milestone" target="_blank">
                             <div className="circle">1</div>
