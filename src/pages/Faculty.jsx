@@ -137,7 +137,7 @@ function Faculty() {
     { room: 'A-324', name: 'Dr. Vikas Panthi' },
     { room: 'A-325', name: 'Dr Pradeep Kashyap' },
     { room: 'A-326', name: 'Dr Ashok K Patel' },
-    { room: '3rd floor Ext. Cabin', name: 'Ms. Ravina Toppo' },
+    { room: 'B-300', name: 'Ms. Ravina Toppo' },
     { room: 'B-301', name: 'Dr. Hariharan R' },
     { room: 'B-302', name: 'Nilam Venkatakoteswararao' },
     { room: 'B-303', name: 'Sheerin Kayenat' },
@@ -179,7 +179,7 @@ function Faculty() {
     { room: 'A-424', name: 'Dr. Ramraj Dangi' },
     { room: 'A-425', name: 'Dr. Sonjoy Pan' },
     { room: 'A-426', name: 'DR. Sumit Som' },
-    { room: '4th floor Ext. Cabin', name: 'Dr. Santosh Sahu' },
+    { room: 'B-400', name: 'Dr. Santosh Sahu' },
     { room: 'B-401', name: 'Saurabh Bhargava' },
     { room: 'B-402', name: 'Dr. Ranjitha Kumar' },
     { room: 'B-403', name: 'Dr. Priscilla Dinkar Morya' },
@@ -224,7 +224,7 @@ function Faculty() {
     { room: 'A-524', name: 'Dr. Dipanjana Hazra' },
     { room: 'A-525', name: 'Dr. Arya Priyadarshini' },
     { room: 'A-526', name: 'Khatavkar Vaibhav Kashinath' },
-    { room: '5th floor Ext. Cabin', name: 'Dr. Rahul Shrivastava' },
+    { room: 'B-500', name: 'Dr. Rahul Shrivastava' },
     { room: 'B-501', name: 'DR. RUDRA KALYAN NAYAK' },
     { room: 'B-502', name: 'Dr. Dip Mukherjee' },
     { room: 'B-503', name: 'N. Vignesh' },
@@ -278,21 +278,21 @@ function Faculty() {
     { room: 'C-538', name: 'Shilpa Suman' },
     { room: 'C-539', name: 'PRATOSH KUMAR PAL' },
     { room: 'C-540', name: 'Prasad Begde' },
-    { room: 'A', name: 'Dr. Debashis Adhikari' },
-    { room: 'B', name: 'Dr. Debashis Adhikari' },
-    { room: 'C', name: 'Dr. Poonkuntran S' },
-    { room: 'J', name: 'Mr. ANIL MEWADA' },
-    { room: '1', name: 'Dr. YOGESH' },
-    { room: '2', name: 'Dr. Neha Choubey' },
-    { room: '3', name: 'Mayank Gupta' },
-    { room: '1', name: 'Dr. Shriram R' },
-    { room: '2', name: 'Dr J MANIKANDAN' },
-    { room: '3', name: 'Dr. S. Ananthakumaran' },
-    { room: '4', name: 'R. Sukumar' },
-    { room: '5', name: 'Dr. Sharad Chandra Tripathi' },
-    { room: '6', name: 'Dr. Anirban Bhowmick' },
-    { room: '7', name: 'Dr. Hariharasitaraman. S' },
-    { room: '9', name: 'Rajendra Mahanandia' },
+    { room: 'C-300', name: 'Dr. Debashis Adhikari' },
+    { room: 'C-300', name: 'Dr. Debashis Adhikari' },
+    { room: 'C-300', name: 'Dr. Poonkuntran S' },
+    { room: 'C-300', name: 'Mr. ANIL MEWADA' },
+    { room: 'C-300', name: 'Dr. YOGESH' },
+    { room: 'C-300', name: 'Dr. Neha Choubey' },
+    { room: 'C-300', name: 'Mayank Gupta' },
+    { room: 'C-300', name: 'Dr. Shriram R' },
+    { room: 'C-300', name: 'Dr J MANIKANDAN' },
+    { room: 'C-300', name: 'Dr. S. Ananthakumaran' },
+    { room: 'C-300', name: 'R. Sukumar' },
+    { room: 'C-300', name: 'Dr. Sharad Chandra Tripathi' },
+    { room: 'C-300', name: 'Dr. Anirban Bhowmick' },
+    { room: 'C-300', name: 'Dr. Hariharasitaraman. S' },
+    { room: 'C-300', name: 'Rajendra Mahanandia' },
     { room: 'AB-306', name: 'Dr. Abha Gupta' },
     { room: 'AB-306', name: 'Dr. Sonal Trivedi' },
     { room: 'AB-310', name: 'Mr. RAVI KUMAR SINGH' },
@@ -313,6 +313,8 @@ function Faculty() {
     setActiveBox(box);
     setArrowVisible(false); // Hide arrow when manually clicking
   };
+
+  const [isHighFloor, setIsHighFloor] = useState(false);
 
   const handleSearchChange = (e) => {
     const query = e.target.value;
@@ -339,21 +341,51 @@ function Faculty() {
       floorInfo = `Ground Floor, Room: ${room}`;
     } else {
       const floorNumber = Math.floor(parseInt(roomNumber) / 100);
-      floorInfo = `Floor ${floorNumber}, Room: ${room}`;
+
+      if (isNaN(floorNumber)) {
+        floorInfo = `${room}`;
+      }
+      else {
+        floorInfo = `Floor ${floorNumber}, Room: ${room}`;
+      }
     }
 
-    return floorInfo;
+    return {
+      floorInfo,
+      floorNumber: Math.floor(parseInt(roomNumber) / 100) // Return floor number too
+    };
   };
+
+  const [boxCContent, setBoxCContent] = useState("");
+  const [boxDContent, setBoxDContent] = useState("");
+
 
   const handleSuggestionClick = (faculty) => {
     setSearchQuery(faculty.name);
-    setSelectedRoomInfo(getRoomAndFloorInfo(faculty.room)); // Update room info on suggestion click
+
+    const roomInfo = getRoomAndFloorInfo(faculty.room);
+    setSelectedRoomInfo(roomInfo.floorInfo); // Update room info
+
     setSuggestions([]);
+
+    const floorNumber = roomInfo.floorNumber;
+    if(floorNumber === 3){
+      setIsHighFloor(true);
+      setBoxCContent("ACD Office");
+    }
+    else if (floorNumber === 4 || floorNumber === 5) {
+      setIsHighFloor(true);
+      setBoxCContent("C");
+      setBoxDContent("B");
+    } else {
+      setBoxCContent("");
+    }
 
     const roomLetter = faculty.room.charAt(0);
     setActiveBox(roomLetter);
-    setArrowVisible(true); // Show arrow on search match
+    setArrowVisible(true);
   };
+
 
   return (<>
 
@@ -381,17 +413,17 @@ function Faculty() {
       <div className={`box box-a ${activeBox === 'A' ? 'active' : ''}`}>
         A {activeBox === 'A' && arrowVisible && <span className="arrow">←</span>}
       </div>
-      <div className={`box box-b ${activeBox === 'B' ? 'active' : ''}`}>
+      <div className={`box box-b ${activeBox === 'B' ? 'active' : ''} ${isHighFloor ? 'swap-b' : ''}`}>
         B {activeBox === 'B' && arrowVisible && <span className="arrow">←</span>}
       </div>
-      <div className={`box box-c ${activeBox === 'C' ? 'active active-c' : ''}`}>
-        C {activeBox === 'C' && arrowVisible && <span className="arrow">→</span>}
+      <div className={`box box-c ${activeBox === 'C' ? 'active' : ''} ${isHighFloor ? 'swap-c' : ''}`}>
+        {boxCContent || "C"} {activeBox === 'C' && arrowVisible && <span className="arrow">→</span>}
       </div>
-      <div className={`box box-d ${activeBox === 'D' ? 'active active-d' : ''}`}>
-        D {activeBox === 'D' && arrowVisible && <span className="arrow">→</span>}
+      <div className={`box box-d ${activeBox === 'D' ? 'active' : ''} ${isHighFloor ? 'swap-d' : 'hide'}`}>
+        {boxDContent || "B"} {activeBox === 'D' && arrowVisible && <span className="arrow">→</span>}
       </div>
     </div>
-    <div className='footer' style={{marginTop:30}}>
+    <div className='footer' style={{ marginTop: 30 }}>
       <Footer />
     </div>
 

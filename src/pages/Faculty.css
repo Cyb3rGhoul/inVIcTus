@@ -45,24 +45,51 @@
 }
 
 .box-b {
-  bottom: 12%;
+  position: absolute;
+  bottom: 12%; 
   left: 8%;
   width: 125px;
   height: 80px;
 }
 
 .box-c {
-  top: 29%;
+  position: absolute;
+  top: 29%; 
   right: 8.5%;
   width: 133.5px;
   height: 80px;
 }
 
 .box-d {
-  bottom: 12%;
+  position: absolute;
+  bottom: 12%; 
   right: 8.5%;
   width: 133.5px;
   height: 80px;
+}
+
+/* Classes for swapping positions and hiding elements */
+.swap-b {
+  bottom: 12%;
+  left: 8%;
+  right: unset;
+  top: unset;
+}
+
+.swap-c{
+  top: 53%;
+  left: 30.5%;
+  bottom: unset;
+  height: 70px;
+}
+
+.swap-d{
+  top: 29%;
+  right: 8.5%;
+}
+
+.hide {
+  display: none;
 }
 
 .box.active,
@@ -139,8 +166,8 @@
   animation: growGlow 1.5s infinite alternate;
 }
 
-.box.active-d .arrow,
-.box.active-c .arrow {
+.box.box-c .arrow,
+.box.box-d .arrow {
   left: -30px;
   right: auto;
 }
