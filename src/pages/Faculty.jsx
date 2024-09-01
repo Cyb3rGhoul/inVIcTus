@@ -110,7 +110,7 @@ function Faculty() {
     { room: 'A-248', name: 'Dr. Rajeev' },
     { room: 'A-249', name: 'Dr Sarvanan D' },
     { room: 'A-250', name: 'Dr GK' },
-    { room: '2nd floor Ext. Cabin', name: 'Dr. Gunjan Ansari' },
+    { room: 'B-200', name: 'Dr. Gunjan Ansari' },
     { room: 'A-301', name: 'Ajay Kumar Bhurjee' },
     { room: 'A-302', name: 'Akshara Makrariya' },
     { room: 'A-303', name: 'Kumar Pandey' },
@@ -137,7 +137,7 @@ function Faculty() {
     { room: 'A-324', name: 'Dr. Vikas Panthi' },
     { room: 'A-325', name: 'Dr Pradeep Kashyap' },
     { room: 'A-326', name: 'Dr Ashok K Patel' },
-    { room: 'B-300', name: 'Ms. Ravina Toppo' },
+    { room: 'D-300', name: 'Ms. Ravina Toppo' },
     { room: 'B-301', name: 'Dr. Hariharan R' },
     { room: 'B-302', name: 'Nilam Venkatakoteswararao' },
     { room: 'B-303', name: 'Sheerin Kayenat' },
@@ -313,13 +313,14 @@ function Faculty() {
     setActiveBox(box);
     setArrowVisible(false); // Hide arrow when manually clicking
   };
-
+  
   const [isHighFloor, setIsHighFloor] = useState(false);
-
+  const [reverseArrow, setReverseArrow] = useState(false);
+  
   const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-
+  
     if (query.length > 0) {
       const filteredSuggestions = faculties.filter((faculty) =>
         faculty.name.toLowerCase().includes(query.toLowerCase())
@@ -332,97 +333,102 @@ function Faculty() {
       setArrowVisible(false);
     }
   };
-
+  
   const getRoomAndFloorInfo = (room) => {
     let floorInfo = '';
     const [building, roomNumber] = room.split('-');
-
+  
     if (building === 'G') {
       floorInfo = `Ground Floor, Room: ${room}`;
     } else {
       const floorNumber = Math.floor(parseInt(roomNumber) / 100);
-
+  
       if (isNaN(floorNumber)) {
         floorInfo = `${room}`;
-      }
-      else {
+      } else {
         floorInfo = `Floor ${floorNumber}, Room: ${room}`;
       }
     }
-
+  
     return {
       floorInfo,
-      floorNumber: Math.floor(parseInt(roomNumber) / 100) // Return floor number too
+      floorNumber: Math.floor(parseInt(roomNumber) / 100), // Return floor number too
     };
   };
-
+  
   const [boxCContent, setBoxCContent] = useState("");
   const [boxDContent, setBoxDContent] = useState("");
-
-
+  
   const handleSuggestionClick = (faculty) => {
     setSearchQuery(faculty.name);
-
+  
     const roomInfo = getRoomAndFloorInfo(faculty.room);
     setSelectedRoomInfo(roomInfo.floorInfo); // Update room info
-
+  
     setSuggestions([]);
-
+  
     const floorNumber = roomInfo.floorNumber;
-    if(floorNumber === 3){
+  
+    if (floorNumber === 3) {
       setIsHighFloor(true);
+      setReverseArrow(true); // Arrow is not reversed on 3rd floor
       setBoxCContent("ACD Office");
-    }
-    else if (floorNumber === 4 || floorNumber === 5) {
+    } else if (floorNumber === 4 || floorNumber === 5) {
       setIsHighFloor(true);
+      setReverseArrow(true); // Reverse arrows on 4th and 5th floors
       setBoxCContent("C");
-      setBoxDContent("B");
+      setBoxDContent("AB");
     } else {
+      setIsHighFloor(false);
+      setReverseArrow(false); // Normal arrow for other floors
       setBoxCContent("");
     }
-
+  
     const roomLetter = faculty.room.charAt(0);
     setActiveBox(roomLetter);
     setArrowVisible(true);
   };
-
-
-  return (<>
-
-    <div className={`container ${suggestions.length > 0 ? 'suggestions-visible' : ''}`}>
-      <input
-        type="text"
-        placeholder="Search for a faculty..."
-        value={searchQuery}
-        onChange={handleSearchChange}
-        className="search-bar"
-      />
-      {suggestions.length > 0 && (
-        <ul className="suggestions-list">
-          {suggestions.map((faculty, index) => (
-            <li key={index} onClick={() => handleSuggestionClick(faculty)}>
-              {faculty.name}
-            </li>
-          ))}
-        </ul>
-      )}
-      <p className="room-display">
-        {selectedRoomInfo || 'Room info will appear here.'}
-      </p>
-      <img src={image} alt="layout" className="layout-image" />
-      <div className={`box box-a ${activeBox === 'A' ? 'active' : ''}`}>
-        A {activeBox === 'A' && arrowVisible && <span className="arrow">←</span>}
+  
+  return (
+    <>
+      <div className={`container ${suggestions.length > 0 ? 'suggestions-visible' : ''}`}>
+        <input
+          type="text"
+          placeholder="Search for a faculty..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="search-bar"
+        />
+        {suggestions.length > 0 && (
+          <ul className="suggestions-list">
+            {suggestions.map((faculty, index) => (
+              <li key={index} onClick={() => handleSuggestionClick(faculty)}>
+                {faculty.name}
+              </li>
+            ))}
+          </ul>
+        )}
+        <p className="room-display">
+          {selectedRoomInfo || 'Room info will appear here.'}
+        </p>
+        <img src={image} alt="layout" className="layout-image" />
+        <div className={`box box-a ${activeBox === 'A' ? 'active' : ''}`}>
+          A {activeBox === 'A' && arrowVisible && <span className="arrow">←</span>}
+        </div>
+        <div className={`box box-b ${activeBox === 'B' ? 'active' : ''} ${isHighFloor ? 'swap-b' : ''}`}>
+          B {activeBox === 'B' && arrowVisible && (
+            <span className={`arrow ${reverseArrow ? 'arr-b' : ''}`}>{reverseArrow ? '→' : '←'}</span>
+          )}
+        </div>
+        <div className={`box box-c ${activeBox === 'C' ? 'active' : ''} ${isHighFloor ? 'swap-c' : ''}`}>
+          {boxCContent || "C"} {activeBox === 'C' && arrowVisible && <span className="arrow">→</span>}
+        </div>
+        <div className={`box box-d ${activeBox === 'D' ? 'active' : ''} ${isHighFloor ? 'swap-d' : 'hide'}`}>
+          {boxDContent || "AB"} {activeBox === 'D' && arrowVisible && (
+            <span className={`arrow ${reverseArrow ? 'arr-d' : ''}`}>{reverseArrow ? '←' : '→'}</span>
+          )}
+        </div>
       </div>
-      <div className={`box box-b ${activeBox === 'B' ? 'active' : ''} ${isHighFloor ? 'swap-b' : ''}`}>
-        B {activeBox === 'B' && arrowVisible && <span className="arrow">←</span>}
-      </div>
-      <div className={`box box-c ${activeBox === 'C' ? 'active' : ''} ${isHighFloor ? 'swap-c' : ''}`}>
-        {boxCContent || "C"} {activeBox === 'C' && arrowVisible && <span className="arrow">→</span>}
-      </div>
-      <div className={`box box-d ${activeBox === 'D' ? 'active' : ''} ${isHighFloor ? 'swap-d' : 'hide'}`}>
-        {boxDContent || "B"} {activeBox === 'D' && arrowVisible && <span className="arrow">→</span>}
-      </div>
-    </div>
     <div className='footer' style={{ marginTop: 30 }}>
       <Footer />
     </div>
