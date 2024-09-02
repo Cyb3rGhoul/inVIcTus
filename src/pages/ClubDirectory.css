@@ -1,0 +1,315 @@
+:root {
+    --primary-color: #2F3C7E;
+    --secondary-color: #FBEAEB;
+}
+
+body {
+    font-family: "Exo 2", sans-serif;
+}
+
+.club-directory {
+    margin-top: 60px;
+    background-color: var(--secondary-color);
+    padding: 4rem 2rem;
+    text-align: center;
+    font-family: "Exo 2", sans-serif;
+}
+
+/* Club Cards */
+.club-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.club-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 2rem;
+    width: 300px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.club-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.club-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+p {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+.club-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.club-btn:hover {
+    background-color: #1e2859;
+}
+
+
+/* Search Bar Styles */
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    padding: 0.5rem;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.search-input {
+    width: 92%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    font-size: 1.1rem;
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.suggestions-container {
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 0 0 25px 25px;
+    position: absolute;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    z-index: 10;
+    top: 110%;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.suggestions-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.suggestion-item {
+    padding: 0.8rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: "Exo 2", sans-serif;
+    color: var(--primary-color);
+    transition: background-color 0.3s ease;
+}
+
+.suggestion-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .search-input {
+        font-size: 1rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+
+/* Toggle Buttons */
+.toggle-buttons {
+    font-family: "Exo 2", sans-serif;
+    margin-bottom: 2rem;
+}
+
+.toggle-btn {
+    background-color: var(--secondary-color);
+    color: black;
+    border: none;
+    padding: 0.7rem 2rem;
+    font-size: 1rem;
+    font-family: "Exo 2", sans-serif;
+    border-radius: 50px;
+    margin: .5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.toggle-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Club Cards */
+.club-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Club Card Styles */
+.club-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 300px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.club-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .club-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .club-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .club-card {
+        width: 80%;
+    }
+
+}
+
+.footer {
+    background-color: #2F3C7E;
+    color: white;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    color: white;
+}
+
+.add-club-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+    font-family: "Exo 2", sans-serif;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+
+.add-club-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    background-color: #1e2859;
+}
+
+.add-club-text {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .add-club-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .add-club-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}

@@ -32,15 +32,15 @@ const Landing = () => {
                             <h3>FFCS Planner</h3>
                             <p>FFCS Planner is a website for VIT students to create, customize, and export timetables by selecting slots and teachers.</p>
                         </Link>
-                        <Link to="/classroom" className="milestone">
-                            <div className="circle">2</div>
-                            <h3>Find Your Class</h3>
-                            <p>(This section is under construction but will be available soon)</p>
-                        </Link>
                         <Link to="/find-faculty" className="milestone">
-                            <div className="circle">3</div>
+                            <div className="circle">2</div>
                             <h3>Find Your Faculty</h3>
                             <p>(For VIT Bhopal students) An easy way to find the Cabin number of your faculty using visiual floor map. (I Bet it is the best)</p>
+                        </Link>
+                        <Link to="/clubs" className="milestone">
+                            <div className="circle">3</div>
+                            <h3>Explore the cool clubs.</h3>
+                            <p>Explore the best of the best clubs of VIT Bhopal. Explore them and Join your favouraties :)</p>
                         </Link>
                         <Link to="/project" className="milestone">
                             <div className="circle">4</div>

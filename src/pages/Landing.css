@@ -77,13 +77,12 @@ header p {
     flex-direction: column;
     align-items: center;
     background-color: #fff;
-    /* White background for milestones */
     padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
-    width: 15%;
+    width: 20%;
+    height: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Add subtle shadow */
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
 }
@@ -115,7 +114,7 @@ header p {
 }
 
 .timeline .milestone p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #666;
     /* Slightly lighter color for paragraph */
 }
