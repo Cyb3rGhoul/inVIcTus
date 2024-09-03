@@ -313,14 +313,14 @@ function Faculty() {
     setActiveBox(box);
     setArrowVisible(false); // Hide arrow when manually clicking
   };
-  
+
   const [isHighFloor, setIsHighFloor] = useState(false);
   const [reverseArrow, setReverseArrow] = useState(false);
-  
+
   const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
-  
+
     if (query.length > 0) {
       const filteredSuggestions = faculties.filter((faculty) =>
         faculty.name.toLowerCase().includes(query.toLowerCase())
@@ -333,42 +333,42 @@ function Faculty() {
       setArrowVisible(false);
     }
   };
-  
+
   const getRoomAndFloorInfo = (room) => {
     let floorInfo = '';
     const [building, roomNumber] = room.split('-');
-  
+
     if (building === 'G') {
       floorInfo = `Ground Floor, Room: ${room}`;
     } else {
       const floorNumber = Math.floor(parseInt(roomNumber) / 100);
-  
+
       if (isNaN(floorNumber)) {
         floorInfo = `${room}`;
       } else {
         floorInfo = `Floor ${floorNumber}, Room: ${room}`;
       }
     }
-  
+
     return {
       floorInfo,
       floorNumber: Math.floor(parseInt(roomNumber) / 100), // Return floor number too
     };
   };
-  
+
   const [boxCContent, setBoxCContent] = useState("");
   const [boxDContent, setBoxDContent] = useState("");
-  
+
   const handleSuggestionClick = (faculty) => {
     setSearchQuery(faculty.name);
-  
+
     const roomInfo = getRoomAndFloorInfo(faculty.room);
     setSelectedRoomInfo(roomInfo.floorInfo); // Update room info
-  
+
     setSuggestions([]);
-  
+
     const floorNumber = roomInfo.floorNumber;
-  
+
     if (floorNumber === 3) {
       setIsHighFloor(true);
       setReverseArrow(true); // Arrow is not reversed on 3rd floor
@@ -383,12 +383,12 @@ function Faculty() {
       setReverseArrow(false); // Normal arrow for other floors
       setBoxCContent("");
     }
-  
+
     const roomLetter = faculty.room.charAt(0);
     setActiveBox(roomLetter);
     setArrowVisible(true);
   };
-  
+
   return (
     <>
       <div className={`container ${suggestions.length > 0 ? 'suggestions-visible' : ''}`}>
@@ -429,11 +429,19 @@ function Faculty() {
           )}
         </div>
       </div>
-    <div className='footer' style={{ marginTop: 30 }}>
-      <Footer />
-    </div>
+      <div className='footer' style={{ marginTop: 30 }}>
+        <Footer />
+      </div>
+      <a
+        href="https://forms.gle/uQjbgXpXGXg89Gib8"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="add-club-btn"
+      >
+        <span className="add-club-text">Update Faculty</span> ➡️
+      </a>
 
-  </>);
+    </>);
 }
 
 export default Faculty;

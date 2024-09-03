@@ -309,3 +309,33 @@
     right: 90%;
   }
 }
+
+
+.add-club-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #FFD700;
+  color: white;
+  font-size: 1.1rem;
+  font-family: "Exo 2", sans-serif;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+.add-club-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: #FFD700;
+}
+
+.add-club-text {
+  margin-right: 0.5rem;
+}
