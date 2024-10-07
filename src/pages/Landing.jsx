@@ -42,7 +42,7 @@ const Landing = () => {
                             <h3>Explore the cool clubs.</h3>
                             <p>Explore the best of the best clubs of VIT Bhopal. Explore them and Join your favouraties :)</p>
                         </Link>
-                        <Link to="/project" className="milestone">
+                        <Link to="/https://github.com/Project-inVIcTus" className="milestone" target='_blank'>
                             <div className="circle">4</div>
                             <h3>Add Your Project</h3>
                             <p>I have created a GitHub org where you can come and display your projects so that others can find you :)</p>
