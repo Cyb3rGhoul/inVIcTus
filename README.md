@@ -2,6 +2,8 @@
 
 Welcome to **inVIcTus**! This is a one-stop destination for all your academic needs, including a FFCS Planner, classroom finder, faculty finder, project submission portal, and contact form.
 
+![Image of the website](https://github.com/Cyb3rGhoul/inVIcTus/blob/main/src/assets/thumbnailLinkedin.png?raw=true)
+
 ## Installation
 
 To get started with the project, follow these steps:
@@ -36,7 +38,6 @@ To get started with the project, follow these steps:
 Once the project is set up and running, you can access various features like:
 
 - **FFCS Planner:** Plan your courses for the semester.
-- **Classroom Finder:** Easily locate your classrooms on campus.
 - **Faculty Finder:** Find contact details and information about your faculty members.
 - **Project Submission:** Add and manage your academic projects.
 - **Contact Form:** Get in touch with the project maintainer.
