@@ -5,6 +5,7 @@ import Faculty from './pages/Faculty';
 import Error from './pages/Error';
 import ClubDirectory from './pages/ClubDirectory';
 import ReactGA from "react-ga4";
+import PYQ from './pages/pyq'; 
 
 // Initialize Google Analytics
 ReactGA.initialize("G-9W3X0KT47K");
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/find-faculty" element={<Faculty />} />
                 <Route path="/clubs" element={<ClubDirectory />} />
                 <Route path="*" element={<Error />} />
+                <Route path="/pyq" element={<pyq />} />
             </Routes>
         </Router>
     );

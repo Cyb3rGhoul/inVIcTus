@@ -47,6 +47,11 @@ const Landing = () => {
                             <h3>Add Your Project</h3>
                             <p>I have created a GitHub org where you can come and display your projects so that others can find you :)</p>
                         </Link>
+                        <Link to="./pyq" className="milestone">
+                            <div className="circle">4</div>
+                            <h3>PYQ Papers</h3>
+                            <p>You can download PYQ papers here.</p>
+                        </Link>
                         <Link to="/contact" className="milestone">
                             <div className="circle">5</div>
                             <h3>Contact Us</h3>
